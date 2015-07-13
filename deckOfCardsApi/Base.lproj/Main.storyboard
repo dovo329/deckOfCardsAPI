@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Il5-Be-NMn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--The Shuffled Deck-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="144" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VUr-7u-gzL">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" rowHeight="144" id="jUb-PF-AcP" customClass="CardImageTableViewCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jUb-PF-AcP" id="ONB-Ys-cmj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E9f-iz-6H9">
+                                                    <rect key="frame" x="187" y="0.0" width="195" height="143"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="195" id="Xrd-G7-9b5"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="E9f-iz-6H9" firstAttribute="top" secondItem="ONB-Ys-cmj" secondAttribute="top" id="Qko-fd-Qeu"/>
+                                                <constraint firstItem="E9f-iz-6H9" firstAttribute="centerX" secondItem="ONB-Ys-cmj" secondAttribute="centerX" id="bdX-jr-hu5"/>
+                                                <constraint firstAttribute="bottom" secondItem="E9f-iz-6H9" secondAttribute="bottom" id="uAa-Gs-b9Y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cardImageView" destination="E9f-iz-6H9" id="BQr-GQ-ww2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QyX-nt-Sz4" id="IeN-eU-IXo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lwf-aA-3fO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VUr-7u-gzL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1pt-3O-kwG"/>
+                            <constraint firstItem="VUr-7u-gzL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="K9z-Rv-CmP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VUr-7u-gzL" secondAttribute="bottom" id="u6D-ht-8eU"/>
+                            <constraint firstItem="VUr-7u-gzL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="uge-1B-2Mh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="The Shuffled Deck" id="91c-m6-fGB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nzf-jv-Q1N"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataSource" destination="QyX-nt-Sz4" id="gsP-Dn-cbt"/>
+                        <outlet property="tableView" destination="VUr-7u-gzL" id="D2U-By-W8j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="QyX-nt-Sz4" customClass="CardTableViewDatasource"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hj5-vt-tV7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Il5-Be-NMn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XGa-Sk-kaX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DV8-zJ-pDp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAh-ao-3bm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="998"/>
+        </scene>
+    </scenes>
+</document>
